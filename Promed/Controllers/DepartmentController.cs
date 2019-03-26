@@ -6,8 +6,9 @@ using System.Web.Mvc;
 
 namespace Promed.Controllers
 {
-    public class HomeController : Controller
+    public class DepartmentController : Controller
     {
+        // GET: Department
         public ActionResult Index()
         {
             return View();

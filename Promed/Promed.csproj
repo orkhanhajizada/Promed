@@ -126,6 +126,13 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\AppointmentController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\BlogController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\DepartmentController.cs" />
+    <Compile Include="Controllers\DoctorsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DAL\PromedContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -134,6 +141,26 @@
     <Compile Include="Migrations\201903251115451_DbDone.cs" />
     <Compile Include="Migrations\201903251115451_DbDone.Designer.cs">
       <DependentUpon>201903251115451_DbDone.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903260939380_FactcAddOrderBy.cs" />
+    <Compile Include="Migrations\201903260939380_FactcAddOrderBy.Designer.cs">
+      <DependentUpon>201903260939380_FactcAddOrderBy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903260949098_FeedbackAddDate.cs" />
+    <Compile Include="Migrations\201903260949098_FeedbackAddDate.Designer.cs">
+      <DependentUpon>201903260949098_FeedbackAddDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903261009510_Aboutelementchange.cs" />
+    <Compile Include="Migrations\201903261009510_Aboutelementchange.Designer.cs">
+      <DependentUpon>201903261009510_Aboutelementchange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903261124016_DoctorAddMinabout.cs" />
+    <Compile Include="Migrations\201903261124016_DoctorAddMinabout.Designer.cs">
+      <DependentUpon>201903261124016_DoctorAddMinabout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903261204510_DoctorSpecalityRelation.cs" />
+    <Compile Include="Migrations\201903261204510_DoctorSpecalityRelation.Designer.cs">
+      <DependentUpon>201903261204510_DoctorSpecalityRelation.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\About.cs" />
@@ -152,74 +179,75 @@
     <Compile Include="Models\Subscribe.cs" />
     <Compile Include="Models\Subslider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\VwAbout.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Public\css\animate.min.css" />
-    <Content Include="Public\css\bootstrap.min.css" />
-    <Content Include="Public\css\icofont.min.css" />
-    <Content Include="Public\css\images\ui-icons_444444_256x240.html" />
-    <Content Include="Public\css\images\ui-icons_555555_256x240.html" />
-    <Content Include="Public\css\images\ui-icons_777620_256x240.html" />
-    <Content Include="Public\css\images\ui-icons_777777_256x240.html" />
-    <Content Include="Public\css\images\ui-icons_cc0000_256x240.html" />
-    <Content Include="Public\css\images\ui-icons_ffffff_256x240.html" />
-    <Content Include="Public\css\jquery.ui.css" />
-    <Content Include="Public\css\magnific-popup.css" />
-    <Content Include="Public\css\owl.carousel.min.css" />
-    <Content Include="Public\css\owl.theme.default.min.css" />
-    <Content Include="Public\css\owl.video.play.html" />
-    <Content Include="Public\css\responsive.css" />
-    <Content Include="Public\css\style.css" />
-    <Content Include="Public\img\about-us-2.jpg" />
-    <Content Include="Public\img\about-us.jpg" />
-    <Content Include="Public\img\appointment-left-bg.jpg" />
-    <Content Include="Public\img\bg.png" />
-    <Content Include="Public\img\client.jpg" />
-    <Content Include="Public\img\department\department-img1.jpg" />
-    <Content Include="Public\img\doctor.png" />
-    <Content Include="Public\img\doctors\1.jpg" />
-    <Content Include="Public\img\doctors\2.jpg" />
-    <Content Include="Public\img\doctors\3.jpg" />
-    <Content Include="Public\img\doctors\4.jpg" />
-    <Content Include="Public\img\error.png" />
-    <Content Include="Public\img\favicon.png" />
-    <Content Include="Public\img\logo.png" />
-    <Content Include="Public\img\newsletter-bg.jpg" />
-    <Content Include="Public\img\news\1.jpg" />
-    <Content Include="Public\img\news\2.jpg" />
-    <Content Include="Public\img\news\3.jpg" />
-    <Content Include="Public\img\news\4.jpg" />
-    <Content Include="Public\img\news\5.jpg" />
-    <Content Include="Public\img\news\latest-post1.jpg" />
-    <Content Include="Public\img\news\latest-post2.jpg" />
-    <Content Include="Public\img\news\latest-post3.jpg" />
-    <Content Include="Public\img\patient\1.jpg" />
-    <Content Include="Public\img\patient\2.jpg" />
-    <Content Include="Public\img\patient\3.jpg" />
-    <Content Include="Public\img\patient\4.jpg" />
-    <Content Include="Public\img\patient\5.jpg" />
-    <Content Include="Public\img\services\1.jpg" />
-    <Content Include="Public\img\services\2.jpg" />
-    <Content Include="Public\img\services\3.jpg" />
-    <Content Include="Public\img\slider\1.jpg" />
-    <Content Include="Public\img\slider\2.jpg" />
-    <Content Include="Public\img\slider\3.jpg" />
-    <Content Include="Public\img\video-bg.jpg" />
-    <Content Include="Public\js\bootstrap.min.js" />
-    <Content Include="Public\js\contact-form-script.js" />
-    <Content Include="Public\js\form-validator.min.js" />
-    <Content Include="Public\js\jquery.ajaxchimp.min.js" />
-    <Content Include="Public\js\jquery.counterup.min.js" />
-    <Content Include="Public\js\jquery.magnific-popup.min.js" />
-    <Content Include="Public\js\jquery.min.js" />
-    <Content Include="Public\js\jquery.ui.js" />
-    <Content Include="Public\js\owl.carousel.min.js" />
-    <Content Include="Public\js\popper.min.js" />
-    <Content Include="Public\js\promedi-map.js" />
-    <Content Include="Public\js\script.js" />
-    <Content Include="Public\js\waypoints.min.js" />
+    <Content Include="Public\assets\css\animate.min.css" />
+    <Content Include="Public\assets\css\bootstrap.min.css" />
+    <Content Include="Public\assets\css\icofont.min.css" />
+    <Content Include="Public\assets\css\images\ui-icons_444444_256x240.html" />
+    <Content Include="Public\assets\css\images\ui-icons_555555_256x240.html" />
+    <Content Include="Public\assets\css\images\ui-icons_777620_256x240.html" />
+    <Content Include="Public\assets\css\images\ui-icons_777777_256x240.html" />
+    <Content Include="Public\assets\css\images\ui-icons_cc0000_256x240.html" />
+    <Content Include="Public\assets\css\images\ui-icons_ffffff_256x240.html" />
+    <Content Include="Public\assets\css\jquery.ui.css" />
+    <Content Include="Public\assets\css\magnific-popup.css" />
+    <Content Include="Public\assets\css\owl.carousel.min.css" />
+    <Content Include="Public\assets\css\owl.theme.default.min.css" />
+    <Content Include="Public\assets\css\owl.video.play.html" />
+    <Content Include="Public\assets\css\responsive.css" />
+    <Content Include="Public\assets\css\style.css" />
+    <Content Include="Public\assets\img\about-us-2.jpg" />
+    <Content Include="Public\assets\img\about-us.jpg" />
+    <Content Include="Public\assets\img\appointment-left-bg.jpg" />
+    <Content Include="Public\assets\img\bg.png" />
+    <Content Include="Public\assets\img\client.jpg" />
+    <Content Include="Public\assets\img\department\department-img1.jpg" />
+    <Content Include="Public\assets\img\doctor.png" />
+    <Content Include="Public\assets\img\doctors\1.jpg" />
+    <Content Include="Public\assets\img\doctors\2.jpg" />
+    <Content Include="Public\assets\img\doctors\3.jpg" />
+    <Content Include="Public\assets\img\doctors\4.jpg" />
+    <Content Include="Public\assets\img\error.png" />
+    <Content Include="Public\assets\img\favicon.png" />
+    <Content Include="Public\assets\img\logo.png" />
+    <Content Include="Public\assets\img\newsletter-bg.jpg" />
+    <Content Include="Public\assets\img\news\1.jpg" />
+    <Content Include="Public\assets\img\news\2.jpg" />
+    <Content Include="Public\assets\img\news\3.jpg" />
+    <Content Include="Public\assets\img\news\4.jpg" />
+    <Content Include="Public\assets\img\news\5.jpg" />
+    <Content Include="Public\assets\img\news\latest-post1.jpg" />
+    <Content Include="Public\assets\img\news\latest-post2.jpg" />
+    <Content Include="Public\assets\img\news\latest-post3.jpg" />
+    <Content Include="Public\assets\img\patient\1.jpg" />
+    <Content Include="Public\assets\img\patient\2.jpg" />
+    <Content Include="Public\assets\img\patient\3.jpg" />
+    <Content Include="Public\assets\img\patient\4.jpg" />
+    <Content Include="Public\assets\img\patient\5.jpg" />
+    <Content Include="Public\assets\img\services\1.jpg" />
+    <Content Include="Public\assets\img\services\2.jpg" />
+    <Content Include="Public\assets\img\services\3.jpg" />
+    <Content Include="Public\assets\img\slider\1.jpg" />
+    <Content Include="Public\assets\img\slider\2.jpg" />
+    <Content Include="Public\assets\img\slider\3.jpg" />
+    <Content Include="Public\assets\img\video-bg.jpg" />
+    <Content Include="Public\assets\js\bootstrap.min.js" />
+    <Content Include="Public\assets\js\contact-form-script.js" />
+    <Content Include="Public\assets\js\form-validator.min.js" />
+    <Content Include="Public\assets\js\jquery.ajaxchimp.min.js" />
+    <Content Include="Public\assets\js\jquery.counterup.min.js" />
+    <Content Include="Public\assets\js\jquery.magnific-popup.min.js" />
+    <Content Include="Public\assets\js\jquery.min.js" />
+    <Content Include="Public\assets\js\jquery.ui.js" />
+    <Content Include="Public\assets\js\owl.carousel.min.js" />
+    <Content Include="Public\assets\js\popper.min.js" />
+    <Content Include="Public\assets\js\promedi-map.js" />
+    <Content Include="Public\assets\js\script.js" />
+    <Content Include="Public\assets\js\waypoints.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -234,11 +262,19 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Uploads\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <Content Include="Public\fonts\icofont.woff" />
-    <Content Include="Public\fonts\icofont.woff2" />
+    <Content Include="Public\assets\fonts\icofont.woff" />
+    <Content Include="Public\assets\fonts\icofont.woff2" />
+    <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\Department\Index.cshtml" />
+    <Content Include="Views\Doctors\Index.cshtml" />
+    <Content Include="Views\Appointment\Index.cshtml" />
+    <Content Include="Views\Blog\Index.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
@@ -246,6 +282,21 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201903251115451_DbDone.resx">
       <DependentUpon>201903251115451_DbDone.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903260939380_FactcAddOrderBy.resx">
+      <DependentUpon>201903260939380_FactcAddOrderBy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903260949098_FeedbackAddDate.resx">
+      <DependentUpon>201903260949098_FeedbackAddDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903261009510_Aboutelementchange.resx">
+      <DependentUpon>201903261009510_Aboutelementchange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903261124016_DoctorAddMinabout.resx">
+      <DependentUpon>201903261124016_DoctorAddMinabout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903261204510_DoctorSpecalityRelation.resx">
+      <DependentUpon>201903261204510_DoctorSpecalityRelation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

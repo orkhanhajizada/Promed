@@ -22,5 +22,8 @@ namespace Promed.Models
         [Required, StringLength(500)]
         [Column(TypeName = "ntext")]
         public string Text { get; set; }
+
+        [Required]
+        public DateTime Date { get; set; }
     }
 }

@@ -22,6 +22,10 @@ namespace Promed.Models
         [StringLength(250)]
         public string Photo { get; set; }
 
+        [Required, MaxLength(250)]
+        [Column(TypeName = "ntext")]
+        public string MinAbout { get; set; }
+
         [Required, MinLength(250)]
         [Column(TypeName = "ntext")]
         public string About { get; set; }
@@ -57,6 +61,8 @@ namespace Promed.Models
 
         [Required]
         public int SpecialityId { get; set; }
+
+        public Speciality Speciality { get; set; }
 
         public List<Appointment> Appointments { get; set; }
 

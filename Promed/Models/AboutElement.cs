@@ -15,11 +15,11 @@ namespace Promed.Models
         [StringLength(500)]
         public string Title { get; set; }
 
-        [Required, StringLength(500)]
+        [StringLength(500)]
         [Column(TypeName = "ntext")]
         public string Text { get; set; }
 
-        [Required]
+        
         [StringLength(200)]
         public string Icon { get; set; }
 

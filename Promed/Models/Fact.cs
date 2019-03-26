@@ -20,5 +20,9 @@ namespace Promed.Models
         [Required]
         [StringLength(200)]
         public string Text { get; set; }
+
+        [Required]
+        public int OrderBy { get; set; }
+
     }
-}
+    }

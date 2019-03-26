@@ -1,0 +1,259 @@
+﻿@model Promed.ViewModels.VwAbout
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<!-- Page Title -->
+<div class="page-title">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-lg-7">
+                <h2>About Us</h2>
+            </div>
+
+            <div class="col-md-6 col-lg-5">
+                <ul>
+                    <li><a href="@Url.Action("index","home")">Home</a></li>
+                    <li>About Us</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Page Title -->
+<!-- Welcome Section -->
+<section class="welcome-section ptb-100">
+    <div class="container">
+        <div class="section-title">
+            <h2>Welcome to Promedi</h2>
+            <p>We are ready to build your dream future Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, beatae. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        </div>
+
+        <div class="row">
+
+            @foreach (var item in Model.AboutElements)
+            {
+                if (item.IsTop == true)
+                {
+                    <div class="col-md-6 col-lg-4">
+                        <div class="single-box">
+                            <div class="icon">
+                                <i class="@item.Icon"></i>
+                            </div>
+
+                            <h3>@item.Title</h3>
+                            <p>@item.Text</p>
+                        </div>
+                    </div>
+                }
+
+            }
+        </div>
+
+        <div class="welcome-inner-content">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-6">
+                    <div class="welcome-image">
+                        <img src="~/Uploads/@Model.About.Photo" alt="about">
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <span>About our medical</span>
+                    <h3>@Model.About.Title</h3>
+                    <p>@Model.About.Text</p>
+                    <ul>
+                        @foreach (var item in Model.AboutElements)
+                        {
+                            if (item.IsTop == false)
+                            {
+                                <li>@item.Title</li>
+                            }
+                        }
+                    </ul>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Welcome section -->
+<!-- Video Section -->
+<section class="video-section ptb-100">
+    <div class="container">
+        <div class="section-title white-title">
+            <h2>Watch Our Video</h2>
+            <p>@Model.Setting.VideoText</p>
+        </div>
+
+        <div class="video-content mb-minus-330">
+            <div class="d-table">
+                <div class="d-tablecell">
+                    <div class="sonar-wrapper">
+                        <div class="sonar-emitter">
+                            <div class="sonar-wave"></div>
+                            <a href="@Model.Setting.VideoLink" class="play-video popup-youtube">
+                                <i class="icofont-play"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Video Section -->
+<!-- Counter section -->
+<div class="counter-section pt-100 pb-70 pt-330">
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model.Facts)
+            {
+                <div class="col-sm-6 col-md-6 col-lg-3">
+                    <div class="single-counter">
+                        <i class="@item.Icon"></i>
+                        <h3 class="counter">@item.Count</h3>
+                        <p>@item.Text</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<!-- End counter section -->
+<!-- Expert Doctors -->
+<section class="expert-doctors ptb-100 gray-bg pb-70">
+    <div class="container">
+        <div class="section-title">
+            <h2>Our Expert Doctors</h2>
+            <p>We are ready to build your dream future Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, beatae. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        </div>
+
+        <div class="expert-doctors-carousel owl-carousel owl-theme owl-theme-2">
+            @foreach (var item in Model.Doctors)
+            {
+                <div class="single-card">
+                    <div class="thumb-img">
+                        <img src="~/Uploads/@item.Photo" alt="~/Uploads/@item.Photo" />
+                        <div class="hover-social">
+                            <div class="d-table">
+                                <div class="d-tablecell">
+                                    <ul>
+                                        <li>
+                                            <a href="@item.Linkedin">
+                                                <i class="icofont-linkedin"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="@item.Twitter">
+                                                <i class="icofont-twitter"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="@item.Facebook">
+                                                <i class="icofont-facebook"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="caption-text text-center">
+                        <h3>@item.Name</h3>
+                            <span class="designation mb-10">@item.Speciality.Name</span>
+                        <p>@item.MinAbout</p>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>
+<!-- Edn Expert Doctors -->
+<!-- Call To Action -->
+<section class="call-to-action">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9">
+                <div class="call-to-action-text">
+                    <i class="icofont-first-aid"></i>
+                    <h3>Health Care Center</h3>
+                    <p>if you have any Emerangcy by health problem contact this <span>No. 035 687 9514</span> or contact form</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3">
+                <a href="@Url.Action("index","contact")" class="default-btn">Contact Us</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Call To Action -->
+<!-- Patient Feedback -->
+<section class="patient-feedback ptb-100">
+    <div class="container">
+        <div class="section-title">
+            <h2>Patient Feedback</h2>
+            <p>We are ready to build your dream future Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, beatae. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        </div>
+
+        <div class="feedback-carousel owl-carousel owl-theme owl-theme-2">
+            @foreach (var item in Model.Feedbacks)
+            {
+                <div class="single-feedback">
+                    <div class="feedback-text">
+                        <i class="icofont-quote-right"></i>
+
+                        <p>@item.Text</p>
+
+                        <div class="profile-content">
+                            <img src="~/Uploads/@item.Photo" alt="~/Uploads/@item.Photo" />
+                            <h4>@item.Fullname</h4>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+<!-- End Patient Feedback -->
+<!-- CTA Area -->
+<div class="cta-area gray-bg ptb-100">
+    <div class="container">
+        <div class="cta-text-content">
+            <h3>We are constantly evaluating and implementing ways to improve patient safety.</h3>
+            <p>Please speak up when you have questions or concerns.</p>
+
+            <div class="cta-contant">
+                <i class="icofont-phone"></i>
+                @Model.Setting.Phone
+            </div>
+        </div>
+
+        <div class="cta-doctor-img">
+            <img src="~/Public/assets/img/doctor.png" alt="Doctor">
+        </div>
+    </div>
+</div>
+<!-- CTA Area -->
+<!-- Our Newsletter -->
+<section class="newsletter-section ptb-100">
+    <div class="container">
+        <div class="section-title white-title">
+            <h2>Join Our Newsletter</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
+        </div>
+
+        <div class="subscribe-from">
+            <form class="newsletter-form" data-toggle="validator">
+                <input type="email" class="form-control" placeholder="Enter email" name="EMAIL" required autocomplete="off">
+                <button type="submit" class="btn submit-btn"><i class="icofont-location-arrow"></i></button>
+                <div id="validator-newsletter" class="form-result"></div>
+            </form>
+        </div>
+    </div>
+</section>
+<!-- End Our Newsletter -->
