@@ -229,6 +229,7 @@
                 url: $(form).attr('action'),
                 data: formData
             }).done(function (response) {
+                console.log(response);
                 $(formMessages).removeClass('error');
                 $(formMessages).addClass('success');
                 $(formMessages).text(response);
@@ -246,6 +247,30 @@
         });
     }
 
+
+    $("select[name='DepartmentId']").change(function () {
+        var req_data = {
+            departmentId: $(this).val()
+        };
+
+
+        $.ajax({
+            url: "/appointment/getdoctor",
+            type: "get",
+            dataType: "json",
+            data: req_data,
+            success: function (response) {
+                $("select[name='DoctoId']").empty();
+
+                $.each(response, function (key, value) {
+                    $("select[name='DoctoId']").append(`<option value="${value.Id}">${value.Name}</option>`);
+                });
+            },
+            error: function (err) {
+                alert(err.responseJSON.message);
+            }
+        });
+    });
 
 
 
