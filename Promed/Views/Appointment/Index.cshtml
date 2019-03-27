@@ -8,7 +8,6 @@
 
     List<Department> departments = ViewBag.Department as List<Department>;
 }
-}
 
 <!-- Page Title -->
 <div class="page-title">
@@ -37,77 +36,6 @@
                     <h3><i class="icofont-phone"></i> @setting.Phone</h3>
                 </div>
             </div>
-            @*<div class="col-md-12 col-lg-7 p-0">
-                <div class="appointment-form">
-                    <h2 class="title">Make an Appointment</h2>
-
-                    <div class="contact-form">
-                        <form action="@Url.Action("message")" method="POST" id="ajax-contact">
-                            <div class="row">
-                                <div class="col-md-6 col-lg-6 pr-10">
-
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" id="id_name" placeholder="Name">
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-6 pl-10">
-                                    <div class="form-group">
-                                        <input type="email" class="form-control" id="id_email" placeholder="Email">
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6 col-lg-6 pr-10">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" id="id_phone_number" placeholder="Phone Number">
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6 col-lg-6 pl-10">
-                                    <div class="form-group">
-                                        <select name="DepartmentId" class="form-control">
-                                            <option value="0">Department</option>
-                                            @foreach (var dep in departments)
-                                            {
-                                                <option value="@dep.Id">@dep.Name</option>
-                                            }
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6 col-lg-6 pr-10">
-                                    <div class="form-group">
-                                        <select name="DoctoId" class="form-control">
-                                            <option value="0">Doctor</option>
-
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6 col-lg-6 pl-10">
-                                    <div class="form-group">
-                                        <input class="form-control" id="datepicker" placeholder="Booking Date">
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="form-group">
-                                <textarea class="form-control" id="message" rows="4" placeholder="Message"></textarea>
-                            </div>
-
-                            <div class="form-group">
-                                <p class="form-messages"></p>
-                                <button type="submit" class="default-btn">Send Message</button>
-                                <div id="msgSubmit" class="h3 text-center hidden"></div>
-                                <div class="clearfix"></div>
-                            </div>
-                        </form>
-                    </div>
-
-                </div>
-            </div>*@
-
-
             <div class="col-md-12 col-lg-7">
                 
                 <div class="appointment-form">

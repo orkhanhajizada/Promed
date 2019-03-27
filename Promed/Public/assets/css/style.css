@@ -585,6 +585,17 @@ img {
   width: 100%;
 }
 
+.hero-text {
+    position: relative;
+    padding-left: 15px;
+    padding-right: 15px;
+    max-width: 1170px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 80px;
+    width: 100%;
+}
+
 .hero-slider .hs-item .hero-text h1 {
   color: #ffffff;
   margin: 0;
@@ -596,7 +607,7 @@ img {
   margin: 25px 4px 0;
 }
 
-.hero-slider .hs-item-bg1 {
+/*.hero-slider .hs-item-bg1 {
   background-image: url("../img/slider/1.jpg");
 }
 
@@ -606,7 +617,7 @@ img {
 
 .hero-slider .hs-item-bg3 {
   background-image: url("../img/slider/3.jpg");
-}
+}*/
 
 .hero-slider button.owl-prev, .hero-slider button.owl-next {
   position: absolute;

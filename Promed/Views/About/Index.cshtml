@@ -72,7 +72,7 @@
                             }
                         }
                     </ul>
-                   
+
                 </div>
             </div>
         </div>
@@ -160,11 +160,12 @@
                             </div>
                         </div>
                     </div>
-
+                    
                     <div class="caption-text text-center">
-                        <h3>@item.Name</h3>
+                        <a href="@Url.Action("details","doctors", new {Slug= item.Slug})">
+                            <h3>@item.Name</h3>
                             <span class="designation mb-10">@item.Speciality.Name</span>
-                        <p>@item.MinAbout</p>
+                            <p>@item.MinAbout</p>
                     </div>
                 </div>
             }
