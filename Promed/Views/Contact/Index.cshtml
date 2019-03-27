@@ -3,6 +3,8 @@
     ViewBag.Title = "Index";
 
     Setting setting = ViewBag.Setting as Setting;
+
+    List<OpeningHour> openings = ViewBag.OpeningHours as List<OpeningHour>;
 }
 
 <!-- Page Title -->
@@ -31,19 +33,19 @@
                 <div class="contact-info">
                     <h3 class="title">Get in Touch</h3>
                     <ul>
-                        <li><i class="icofont-google-map"></i>  210 Quadra Street Victoria, Canada</li>
-                        <li><i class="icofont-envelope"></i>  <a href="#">example@mail.com</a></li>
-                        <li><i class="icofont-smart-phone"></i>  +44 458 7895</li>
+                        <li><i class="icofont-google-map"></i>  @setting.Adress</li>
+                        <li><i class="icofont-envelope"></i> @setting.Email</li>
+                        <li><i class="icofont-smart-phone"></i>  @setting.Phone</li>
                     </ul>
                 </div>
 
                 <div class="opening-hours">
                     <h3 class="title">Opening Hours</h3>
                     <ul>
-                        <li>Mon - Thu <span>7.00 AM - 20.00 PM</span></li>
-                        <li>Friday <span>7.00 AM - 20.00 PM</span></li>
-                        <li>Saturday - Thu <span>7.00 AM - 20.00 PM</span></li>
-                        <li>Sunday <span>7.00 AM - 20.00 PM</span></li>
+                        @foreach (var open in openings)
+                        {
+                        <li>@open.Day <span>@open.OpenHour</span></li>
+                        }
                     </ul>
                 </div>
             </div>
@@ -52,57 +54,58 @@
                 <h3 class="title">Questions? Let our experts help!</h3>
                 <p>Team of Professionals</p>
 
-                <form id="contactForm">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="name" id="name" required data-error="Please enter your name" placeholder="Name">
-                                <div class="help-block with-errors"></div>
+                <div class="contact-form">
+                    <form action="@Url.Action("message")" method="POST" id="ajax-contact">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="name" id="name" required data-error="Please enter your name" placeholder="Name">
+                                    <div class="help-block with-errors"></div>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="col-lg-6 col-md-6">
-                            <div class="form-group">
-                                <input type="email" class="form-control" name="email" id="email" required data-error="Please enter your email" placeholder="Email">
-                                <div class="help-block with-errors"></div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <input type="email" class="form-control" name="email" id="email" required data-error="Please enter your email" placeholder="Email">
+                                    <div class="help-block with-errors"></div>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="col-lg-6 col-md-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="subject" id="subject" required data-error="Please enter your subject" placeholder="Subject">
-                                <div class="help-block with-errors"></div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <input type="tel" class="form-control" name="tel" id="tel" required data-error="Please enter your number" placeholder="Phone">
+                                    <div class="help-block with-errors"></div>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="col-lg-6 col-md-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="number" id="number" required data-error="Please enter your number" placeholder="Number">
-                                <div class="help-block with-errors"></div>
+                            <div class="col-lg-12 col-md-12">
+                                <div class="form-group">
+                                    <textarea name="message" class="form-control" id="message" cols="30" rows="4" required data-error="Write your message" placeholder="Message"></textarea>
+                                    <div class="help-block with-errors"></div>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="col-lg-12 col-md-12">
-                            <div class="form-group">
-                                <textarea name="message" class="form-control" id="message" cols="30" rows="4" required data-error="Write your message" placeholder="Message"></textarea>
-                                <div class="help-block with-errors"></div>
+                            <div class="col-lg-12 col-md-12">
+                                <div class="form-group">
+                                    <p class="form-messages"></p>
+                                    <button type="submit" class="default-btn">Send Message</button>
+                                    <div id="msgSubmit" class="h3 text-center hidden"></div>
+                                    <div class="clearfix"></div>
+                                </div>
                             </div>
-                        </div>
+                            </div>
+                    </form>
 
-                        <div class="col-lg-12 col-md-12">
-                            <button type="submit" class="default-btn">Send Message</button>
-                            <div id="msgSubmit" class="h3 text-center hidden"></div>
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-                </form>
+
+
+                </div>
             </div>
         </div>
     </div>
 </section>
 <!-- End Contact section -->
 <!-- Map -->
-<div id="map"></div>
+<div id="map" data-lat="@setting.Lat" data-lng="@setting.Lng"></div>
 <!-- End Map -->
 
 @section script{

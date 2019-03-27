@@ -3,5 +3,98 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<!-- Page Title -->
+<div class="page-title">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-lg-7">
+                <h2>Appointment</h2>
+            </div>
 
+            <div class="col-md-6 col-lg-5">
+                <ul>
+                    <li><a href="@Url.Action("index","home")">Home</a></li>
+                    <li>Appointment</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Page Title -->
+<!-- Appointment Area -->
+<div class="appointment-area">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 col-lg-5 p-0">
+                <div class="contant-number">
+                    <h3><i class="icofont-phone"></i> 1-604-555-5555</h3>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-7 p-0">
+                <div class="appointment-form">
+                    <h2 class="title">Make an Appointment</h2>
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6 col-lg-6 pr-10">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="id_name" placeholder="Name">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-lg-6 pl-10">
+                                <div class="form-group">
+                                    <input type="email" class="form-control" id="id_email" placeholder="Email">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-lg-6 pr-10">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="id_phone_number" placeholder="Phone Number">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-lg-6 pl-10">
+                                <div class="form-group">
+                                    <select class="form-control">
+                                        <option>Department</option>
+                                        <option>Cardiology</option>
+                                        <option>Neurology</option>
+                                        <option>Orthopedics</option>
+                                        <option>Radiology</option>
+                                        <option>Surgery</option>
+                                        <option>Urology</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-lg-6 pr-10">
+                                <div class="form-group">
+                                    <select class="form-control">
+                                        <option>Doctor</option>
+                                        <option>Dr. Anym Jackson</option>
+                                        <option>Dr. Mark Jacobson</option>
+                                        <option>Dr. Alex Davidson</option>
+                                        <option>Dr. Jaka Alex</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-lg-6 pl-10">
+                                <div class="form-group">
+                                    <input class="form-control" id="datepicker" placeholder="Booking Date">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <textarea class="form-control" id="message" rows="4" placeholder="Message"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn book-now-btn">Book Now</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Appointment Area -->
