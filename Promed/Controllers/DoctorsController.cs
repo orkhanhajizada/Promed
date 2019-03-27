@@ -4,13 +4,11 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Promed.DAL;
 
 namespace Promed.Controllers
 {
-    public class DoctorsController : Controller
+    public class DoctorsController : BaseController
     {
-        private readonly PromedContext _context = new PromedContext() ;
 
         public ActionResult Index()
         {

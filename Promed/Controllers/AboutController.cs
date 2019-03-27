@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Promed.DAL;
 using Promed.ViewModels;  
 
 namespace Promed.Controllers
 {
-    public class AboutController : Controller
+    public class AboutController : BaseController
     {
-        private readonly PromedContext _context = new PromedContext();
+       
 
         public ActionResult Index()
         {

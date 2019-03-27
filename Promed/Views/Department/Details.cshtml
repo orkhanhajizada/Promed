@@ -1,0 +1,100 @@
+﻿@model Department
+
+@{ 
+    Doctor doctor = ViewBag.Doctor as Doctor;
+
+    Setting setting = ViewBag.Setting as Setting;
+}
+        <!-- Page Title -->
+<div class="page-title">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-lg-7">
+                <h2>Department</h2>
+            </div>
+
+            <div class="col-md-6 col-lg-5">
+                <ul>
+                    <li><a href="@Url.Action("index","home")">Home</a></li>
+                    <li>Department</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Page Title -->
+<!-- Department Details section -->
+<section class="department-details ptb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-12">
+                <div class="department-details">
+                    <div class="img">
+                        <img src="~/Uploads/@Model.Photo" alt="~/Uploads/@Model.Photo">
+                    </div>
+
+                    <div class="department-desc">
+                        <h3>@Model.Title</h3>
+                        
+                        @Html.Raw(Model.Text)
+
+                    </div>
+
+                    <div class="share-department">
+                        <h4>Like this department?</h4>
+
+                        <ul>
+                            <li><a href="@setting.Facebook">Facebook</a></li>
+                            <li><a href="@setting.Twitter">Twitter</a></li>
+                            <li><a href="@setting.Linkedin">Linkedin</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-12">
+                <div class="department-sidebar">
+                    <div class="department-info">
+                        <h4>Head of Department</h4>
+                        <ul>
+                            @if (doctor.IsHead == true)
+                            {
+                                <li>Intensivist <span>@doctor.Name</span></li>
+                            }
+                        </ul>
+                    </div>
+
+
+                    <div class="department-info mb-0">
+                        <h4>Contacts</h4>
+                        <ul>
+                            <li>Address: <span>@Model.Adress</span></li>
+                            <li>Email: <span>@Model.Email</span></li>
+                            <li>Call Us: <span>@Model.Phone</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Department Details section -->
+<!-- Call To Action -->
+<section class="call-to-action">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9">
+                <div class="call-to-action-text">
+                    <i class="icofont-first-aid"></i>
+                    <h3>Health Care Center</h3>
+                    <p>if you have any Emerangcy by health problem contact this <span>No.@setting.Phone</span> or contact form</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3">
+                <a href="@Url.Action("index","contact")" class="default-btn">Contact Us</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Call To Action -->

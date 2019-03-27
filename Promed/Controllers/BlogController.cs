@@ -3,18 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Promed.DAL;
 using Promed.Models;
 using Promed.ViewModels;
 
 namespace Promed.Controllers
 {
-    public class BlogController : Controller
+    public class BlogController : BaseController
     {
-        private readonly PromedContext _context = new PromedContext();
-
-        
-
+  
         public ActionResult Index(int? category,int page = 1 )
         {
             VwBlog model = new VwBlog();

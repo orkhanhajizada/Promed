@@ -16,6 +16,10 @@ namespace Promed.Controllers
         public BaseController()
         {
             ViewBag.Setting = _context.Settings.FirstOrDefault();
+
+            ViewBag.Department = _context.Departments.OrderByDescending(d=>d.Name).ToList();
+
+
         }
     }
 }

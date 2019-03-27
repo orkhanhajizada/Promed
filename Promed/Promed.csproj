@@ -174,6 +174,18 @@
     <Compile Include="Migrations\201903261909578_BlogAddTitlePhoto.Designer.cs">
       <DependentUpon>201903261909578_BlogAddTitlePhoto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903270631404_DepartmentAddIconMinAbout.cs" />
+    <Compile Include="Migrations\201903270631404_DepartmentAddIconMinAbout.Designer.cs">
+      <DependentUpon>201903270631404_DepartmentAddIconMinAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903270822579_DepartmentAddSlug.cs" />
+    <Compile Include="Migrations\201903270822579_DepartmentAddSlug.Designer.cs">
+      <DependentUpon>201903270822579_DepartmentAddSlug.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903270944565_OpeningHoursAddOrderBy.cs" />
+    <Compile Include="Migrations\201903270944565_OpeningHoursAddOrderBy.Designer.cs">
+      <DependentUpon>201903270944565_OpeningHoursAddOrderBy.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\About.cs" />
     <Compile Include="Models\AboutElement.cs" />
@@ -283,7 +295,7 @@
     <Content Include="Public\assets\fonts\icofont.woff" />
     <Content Include="Public\assets\fonts\icofont.woff2" />
     <Content Include="Views\About\Index.cshtml" />
-    <Content Include="Views\Department\Index.cshtml" />
+    <Content Include="Views\Department\Details.cshtml" />
     <Content Include="Views\Doctors\Index.cshtml" />
     <Content Include="Views\Appointment\Index.cshtml" />
     <Content Include="Views\Blog\Index.cshtml" />
@@ -321,6 +333,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903261909578_BlogAddTitlePhoto.resx">
       <DependentUpon>201903261909578_BlogAddTitlePhoto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903270631404_DepartmentAddIconMinAbout.resx">
+      <DependentUpon>201903270631404_DepartmentAddIconMinAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903270822579_DepartmentAddSlug.resx">
+      <DependentUpon>201903270822579_DepartmentAddSlug.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903270944565_OpeningHoursAddOrderBy.resx">
+      <DependentUpon>201903270944565_OpeningHoursAddOrderBy.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

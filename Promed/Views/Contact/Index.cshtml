@@ -1,6 +1,8 @@
 ﻿
 @{
     ViewBag.Title = "Index";
+
+    Setting setting = ViewBag.Setting as Setting;
 }
 
 <!-- Page Title -->
@@ -13,7 +15,7 @@
 
             <div class="col-md-6 col-lg-5">
                 <ul>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="@Url.Action("index","home")">Home</a></li>
                     <li>Contact Us</li>
                 </ul>
             </div>
@@ -102,3 +104,10 @@
 <!-- Map -->
 <div id="map"></div>
 <!-- End Map -->
+
+@section script{
+    <!-- Map API JS FILES -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApghCIIx9MpQhA768sKXxvR_Okg0SF2k4&amp;callback=initMap"></script>
+    <!-- Fox Map JS FILE -->
+    <script src="~/Public/assets/js/promedi-map.js"></script>
+}

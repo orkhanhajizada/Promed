@@ -17,5 +17,8 @@ namespace Promed.Models
         [Required]
         [StringLength(250)]
         public string OpenHour { get; set; }
+
+        [Required]
+        public int OrderBy { get; set; }
     }
 }

@@ -1,5 +1,11 @@
 ﻿
 
+@{ 
+    Setting setting = ViewBag.Setting as Setting;
+
+    List<Department> departments = ViewBag.Department as List<Department>;
+}
+
 
 <!doctype html>
 <html lang="zxx">
@@ -57,11 +63,11 @@
                         <ul class="contact-info">
                             <li>
                                 <i class="icofont-phone"></i>
-                                Call us: +44 458 7895
+                                Call us: @setting.Phone
                             </li>
                             <li>
                                 <i class="icofont-location-pin"></i>
-                                210 Quadra Street Victoria, Canada
+                               @setting.Adress
                             </li>
                         </ul>
                     </div>
@@ -69,28 +75,23 @@
                     <div class="col-md-4 col-lg-6">
                         <ul class="social-links">
                             <li>
-                                <a href="#">
+                                <a href="@setting.Facebook">
                                     <i class="icofont-facebook"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="@setting.Twitter">
                                     <i class="icofont-twitter"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="@setting.Linkedin">
                                     <i class="icofont-linkedin"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="@setting.Google">
                                     <i class="icofont-google-plus"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="icofont-instagram"></i>
                                 </a>
                             </li>
                         </ul>
@@ -104,7 +105,7 @@
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="container">
                     <a class="navbar-brand" href="@Url.Action("index","home")">
-                        <img src="~/Public/assets/img/logo.png" alt="Logo">
+                        <img src="~/Uploads/@setting.Logo" alt="~/Uploads/@setting.Logo">
                     </a>
 
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -126,14 +127,10 @@
                                     Departments
                                 </a>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="department-details.html">Cardiology</a>
-                                    <a class="dropdown-item" href="department-details.html">Gynecology</a>
-                                    <a class="dropdown-item" href="department-details.html">Neurology</a>
-                                    <a class="dropdown-item" href="department-details.html">Orthopedics</a>
-                                    <a class="dropdown-item" href="department-details.html">Gastrology</a>
-                                    <a class="dropdown-item" href="department-details.html">Pulmonology</a>
-                                    <a class="dropdown-item" href="department-details.html">Laboratory</a>
-                                    <a class="dropdown-item" href="department-details.html">Urology</a>
+                                    @foreach (var dep in departments)
+                                    {
+                                        <a class="dropdown-item" href="@Url.Action("details","department",new {Slug= dep.Slug})">@dep.Name</a>
+                                    }
                                 </div>
                             </li>
 
@@ -173,16 +170,16 @@
                 <div class="col-sm-12 col-md-12 col-lg-4">
                     <div class="footer-widget">
                         <a href="#" class="footer-logo">
-                            <img src="~/Public/assets/img/logo.png" alt="Logo">
+                            <img src="~/Uploads/@setting.Logo" alt="~/Uploads/@setting.Logo">
                         </a>
 
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
 
                         <ul class="socials-links">
-                            <li><a href="#"><i class="icofont-facebook"></i></a></li>
-                            <li><a href="#"><i class="icofont-twitter"></i></a></li>
-                            <li><a href="#"><i class="icofont-google-plus"></i></a></li>
-                            <li><a href="#"><i class="icofont-linkedin"></i></a></li>
+                            <li><a href="@setting.Facebook"><i class="icofont-facebook"></i></a></li>
+                            <li><a href="@setting.Twitter"><i class="icofont-twitter"></i></a></li>
+                            <li><a href="@setting.Google"><i class="icofont-google-plus"></i></a></li>
+                            <li><a href="@setting.Linkedin"><i class="icofont-linkedin"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -191,12 +188,11 @@
                     <div class="footer-widget">
                         <h3>Quick Links</h3>
                         <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Doctors</a></li>
-                            <li><a href="#">Gallery</a></li>
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Contact</a></li>
+                            <li><a href="@Url.Action("index","home")">Home</a></li>
+                            <li><a href="@Url.Action("index","about")">About</a></li>
+                            <li><a href="@Url.Action("index","doctor")">Doctors</a></li>
+                            <li><a href="@Url.Action("index","blog")">Blog</a></li>
+                            <li><a href="@Url.Action("index","contact")">Contact</a></li>
                         </ul>
                     </div>
                 </div>
@@ -205,12 +201,10 @@
                     <div class="footer-widget">
                         <h3>Departments</h3>
                         <ul>
-                            <li><a href="#">Cardiology</a></li>
-                            <li><a href="#">Neurology</a></li>
-                            <li><a href="#">Orthopedics</a></li>
-                            <li><a href="#">Radiology</a></li>
-                            <li><a href="#">Surgery</a></li>
-                            <li><a href="#">Urology</a></li>
+                            @foreach (var dep in departments)
+                            {
+                                <li><a href="@Url.Action("details","department",new {Slug= dep.Slug })">@dep.Name</a></li>
+                            }
                         </ul>
                     </div>
                 </div>
@@ -222,12 +216,12 @@
 
                         <div class="foot-contact-info">
                             <i class="icofont-phone"></i>
-                            <p>+1-604-555-5556 <br> +1-604-555-5556</p>
+                            <p>@setting.Phone<br> @setting.Phone2</p>
                         </div>
 
                         <div class="foot-contact-info">
                             <i class="icofont-email"></i>
-                            <p>info@promedi.com <br> suport@promedi.com</p>
+                            <p>@setting.Email<br> @setting.Email2</p>
                         </div>
                     </div>
                 </div>
@@ -236,15 +230,10 @@
             <div class="separate-line"></div>
 
             <div class="row bottom-footer">
-                <div class="col-md-6 col-lg-6">
+                <div class="col-md-8 col-lg-8">
                     <p>Copyright  2019, Promedi. All rights reserved.</p>
                 </div>
-                <div class="col-md-6 col-lg-6">
-                    <ul>
-                        <li><a href="#">Privac Policy</a></li>
-                        <li><a href="#">Terms & Conditions</a></li>
-                    </ul>
-                </div>
+               
             </div>
         </div>
     </footer>
@@ -271,12 +260,11 @@
     <script src="~/Public/assets/js/form-validator.min.js"></script>
     <!-- Contact Form JS -->
     <script src="~/Public/assets/js/contact-form-script.js"></script>
-    <!-- Map API JS FILES -->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApghCIIx9MpQhA768sKXxvR_Okg0SF2k4&amp;callback=initMap"></script>
-    <!-- Fox Map JS FILE -->
-    <script src="~/Public/assets/js/promedi-map.js"></script>
     <!-- Main JS -->
     <script src="~/Public/assets/js/script.js"></script>
+
+    @RenderSection("script",required:false)
+
 </body>
 
 <!-- Mirrored from envytheme.com/tf-demo/promedi/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 10 Mar 2019 21:21:31 GMT -->

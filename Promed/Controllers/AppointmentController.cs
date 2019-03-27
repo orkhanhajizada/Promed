@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace Promed.Controllers
 {
-    public class AppointmentController : Controller
+    public class AppointmentController : BaseController
     {
         // GET: Appointment
         public ActionResult Index()

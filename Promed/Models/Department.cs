@@ -11,6 +11,9 @@ namespace Promed.Models
     {
         public int Id { get; set; }
 
+        [StringLength(1000)]
+        public string Slug { get; set; }
+
         [Required]
         [StringLength(50)]
         public string Name { get; set; }
@@ -31,6 +34,9 @@ namespace Promed.Models
         [StringLength(250)]
         public string Photo { get; set; }
 
+        [StringLength(200)]
+        public string Icon { get; set; }
+
         [Required]
         [StringLength(350)]
         public string Title { get; set; }
@@ -38,6 +44,10 @@ namespace Promed.Models
         [Required, MinLength(250)]
         [Column(TypeName = "ntext")]
         public string Text { get; set; }
+
+        [Required, MaxLength(250)]
+        [Column(TypeName = "ntext")]
+        public string MinAbout { get; set; }
 
         public List<Doctor> Doctors { get; set; }
         public List<Appointment> Appointments { get; set; }

@@ -6,11 +6,16 @@ using System.Web.Mvc;
 
 namespace Promed.Controllers
 {
-    public class ContactController : Controller
+    public class ContactController : BaseController
     {
         // GET: Contact
         public ActionResult Index()
         {
+
+            ViewBag.Setting = _context.Settings.FirstOrDefault();
+
+            
+
             return View();
         }
     }
