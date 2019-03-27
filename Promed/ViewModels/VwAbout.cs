@@ -18,8 +18,6 @@ namespace Promed.ViewModels
 
         public List<Doctor> Doctors { get; set; }
 
-        //public Speciality Speciality { get; set; }
-
         public List<Feedback> Feedbacks { get; set; }
     }
 }

@@ -64,6 +64,8 @@ namespace Promed.Models
 
         public Speciality Speciality { get; set; }
 
+        public Department Department { get; set; }
+
         public List<Appointment> Appointments { get; set; }
 
         public List<Blog> Blogs { get; set; }

@@ -162,6 +162,18 @@
     <Compile Include="Migrations\201903261204510_DoctorSpecalityRelation.Designer.cs">
       <DependentUpon>201903261204510_DoctorSpecalityRelation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903261715314_DoctorDepartmenRelation.cs" />
+    <Compile Include="Migrations\201903261715314_DoctorDepartmenRelation.Designer.cs">
+      <DependentUpon>201903261715314_DoctorDepartmenRelation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903261840311_BlogAddMinAbout.cs" />
+    <Compile Include="Migrations\201903261840311_BlogAddMinAbout.Designer.cs">
+      <DependentUpon>201903261840311_BlogAddMinAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903261909578_BlogAddTitlePhoto.cs" />
+    <Compile Include="Migrations\201903261909578_BlogAddTitlePhoto.Designer.cs">
+      <DependentUpon>201903261909578_BlogAddTitlePhoto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\About.cs" />
     <Compile Include="Models\AboutElement.cs" />
@@ -180,6 +192,7 @@
     <Compile Include="Models\Subslider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\VwAbout.cs" />
+    <Compile Include="ViewModels\VwBlog.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
@@ -275,6 +288,8 @@
     <Content Include="Views\Appointment\Index.cshtml" />
     <Content Include="Views\Blog\Index.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Doctors\Details.cshtml" />
+    <Content Include="Views\Blog\Read.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
@@ -297,6 +312,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903261204510_DoctorSpecalityRelation.resx">
       <DependentUpon>201903261204510_DoctorSpecalityRelation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903261715314_DoctorDepartmenRelation.resx">
+      <DependentUpon>201903261715314_DoctorDepartmenRelation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903261840311_BlogAddMinAbout.resx">
+      <DependentUpon>201903261840311_BlogAddMinAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903261909578_BlogAddTitlePhoto.resx">
+      <DependentUpon>201903261909578_BlogAddTitlePhoto.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

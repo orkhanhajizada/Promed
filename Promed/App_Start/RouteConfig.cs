@@ -14,6 +14,23 @@ namespace Promed
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+               name: "DoctorUrl",
+               url: "doctor/{slug}",
+               defaults: new { controller = "Doctors", action = "Details", id = UrlParameter.Optional }
+           );
+            routes.MapRoute(
+              name: "BlogIndex",
+              url: "blog",
+              defaults: new { controller = "Blog", action = "Index", id = UrlParameter.Optional }
+          );
+
+            routes.MapRoute(
+               name: "BlogUrl",
+               url: "read/{slug}",
+               defaults: new { controller = "Blog", action = "Read", id = UrlParameter.Optional }
+           );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

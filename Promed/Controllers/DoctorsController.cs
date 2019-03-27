@@ -1,17 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Promed.DAL;
 
 namespace Promed.Controllers
 {
     public class DoctorsController : Controller
     {
-        // GET: Doctors
+        private readonly PromedContext _context = new PromedContext() ;
+
         public ActionResult Index()
         {
-            return View();
+
+            return View(_context.Doctors.Include("Speciality").ToList());
+        }
+
+        public ActionResult Details(string Slug)
+        {
+            if (string.IsNullOrEmpty(Slug))
+            {
+                return HttpNotFound();
+            }
+
+            var doctors = _context.Doctors.FirstOrDefault(d => d.Slug == Slug);
+
+            if (doctors == null)
+            {
+                return HttpNotFound();
+            }
+
+            ViewBag.Doctor = _context.Doctors.Include("Department").Include("Speciality").ToList();
+
+
+            return View(doctors);
         }
     }
 }

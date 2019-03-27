@@ -22,9 +22,17 @@ namespace Promed.Models
         [Column(TypeName = "ntext")]
         public string Text { get; set; }
 
+        [Required, MaxLength(250)]
+        [Column(TypeName = "ntext")]
+        public string MinAbout { get; set; }
+
         [Required]
         [StringLength(250)]
         public string Photo { get; set; }
+
+        [Required]
+        [StringLength(250)]
+        public string TitlePhoto { get; set; }
 
         [Required]
         public DateTime Date { get; set; }

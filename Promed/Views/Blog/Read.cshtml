@@ -1,0 +1,144 @@
+﻿@model VwBlogRead
+
+
+@{
+    ViewBag.Title = "Read";
+
+    int indexOfBlog = Model.Blogs.IndexOf(Model.Blog);
+
+    Blog next = null;
+    Blog prev = null;
+
+    if (indexOfBlog != 0)
+    {
+        prev = Model.Blogs[indexOfBlog - 1];
+    }
+
+    if (indexOfBlog != Model.Blogs.Count() - 1)
+    {
+        next = Model.Blogs[indexOfBlog + 1];
+    }
+}
+
+<div class="page-title">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-lg-7">
+                <h2>Blog Details</h2>
+            </div>
+
+            <div class="col-md-6 col-lg-5">
+                <ul>
+                    <li><a href="@Url.Action("index","home")">Home</a></li>
+                    <li>Blog Details</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Page Title -->
+<!-- Start Blog Details Area -->
+<section class="blog-details-area gray-bg ptb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-12">
+                <div class="blog-details">
+                    <div class="article-img">
+                        <img src="~/Uploads/@Model.Blog.Photo" alt="~/Uploads/@Model.Blog.Photo">
+                        <div class="date">@Model.Blog.Date.ToString("dd") <br> @Model.Blog.Date.ToString("MMM")</div>
+                    </div>
+
+                    <div class="article-content">
+
+
+                        <h3 class="mb-5">@Model.Blog.Title</h3>
+
+                        @Html.Raw(Model.Blog.Text)
+
+                        <div class="share-post">
+                            <ul>
+                                <li><a href="@Model.Setting.Facebook"><i class="icofont-facebook"></i></a></li>
+                                <li><a href="@Model.Setting.Twitter"><i class="icofont-twitter"></i></a></li>
+                                <li><a href="@Model.Setting.Linkedin"><i class="icofont-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post-controls-buttons">
+                    <div class="controls-left">
+                        @if (prev != null)
+                        {
+
+
+                            <a href="@Url.Action("read","blog",new { Slug=prev.Slug })"><i class="icofont-double-left"></i> Prev Post</a>
+
+                        }
+                    </div>
+                    <div class="controls-right">
+                        @if (next != null)
+                        {
+
+                            <a href="@Url.Action("read","blog",new { Slug=next.Slug })">Next Post <i class="icofont-double-right"></i></a>
+
+                        }
+                    </div>
+                    </div>
+            </div>
+
+            
+                        <div class="col-lg-4 col-md-12">
+                            <div class="side-bar">
+                                <div class="widget latest-post">
+                                    <h4 class="title">Latest Post</h4>
+                                    @foreach (var item in Model.LastPosts)
+                                    {
+                                        <div class="single-post">
+                                            <div class="img">
+                                                <a href="@Url.Action("read","blog", new {Slug= item.Slug})"><img src="~/Uploads/@item.TitlePhoto" alt="~/Uploads/@item.TitlePhoto"></a>
+                                            </div>
+
+                                            <div class="content">
+                                                <ul>
+                                                    <li><a href="@Url.Action("details","doctors", new {Slug= item.Doctor.Slug})">@item.Doctor.Name</a></li>
+                                                </ul>
+                                                <h4><a href="@Url.Action("read","blog", new {Slug= item.Slug})">@item.Title</a></h4>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+
+                                <div class="widget categories">
+                                    <h3 class="title">Categories</h3>
+                                    <ul>
+                                        @foreach (var cat in Model.Categories)
+                                        {
+                                            <li><a href="@Url.Action("index","blog", new {category = cat.Id })"><i class="icofont-double-right"></i> @cat.Name</a></li>
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        </div>
+</section>
+<!-- End Blog Details Area -->
+<!-- Call To Action -->
+<section class="call-to-action">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9">
+                <div class="call-to-action-text">
+                    <i class="icofont-first-aid"></i>
+                    <h3>Health Care Center</h3>
+                    <p>if you have any Emerangcy by health problem contact this <span>No. 035 687 9514</span> or contact form</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3">
+                <a href="#" class="default-btn">Contact Us</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Call To Action -->
