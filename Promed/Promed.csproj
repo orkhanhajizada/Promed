@@ -129,6 +129,7 @@
     <Compile Include="Areas\Manage\Controllers\AboutsController.cs" />
     <Compile Include="Areas\Manage\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Manage\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Manage\Controllers\SettingsController.cs" />
     <Compile Include="Areas\Manage\Filters\Auth.cs" />
     <Compile Include="Areas\Manage\Helpers\FileManager.cs" />
     <Compile Include="Areas\Manage\ManageAreaRegistration.cs" />
@@ -196,6 +197,10 @@
     <Compile Include="Migrations\201903280519022_AdminTable.cs" />
     <Compile Include="Migrations\201903280519022_AdminTable.Designer.cs">
       <DependentUpon>201903280519022_AdminTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903281454593_SettingLogoName.cs" />
+    <Compile Include="Migrations\201903281454593_SettingLogoName.Designer.cs">
+      <DependentUpon>201903281454593_SettingLogoName.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\About.cs" />
@@ -2056,6 +2061,8 @@
     <Content Include="Areas\Manage\Views\Dashboard\Index.cshtml" />
     <Content Include="Areas\Manage\Views\Abouts\Edit.cshtml" />
     <Content Include="Areas\Manage\Views\Abouts\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Settings\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\Settings\Index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Public\assets\fonts\icofont.woff" />
     <Content Include="Public\assets\fonts\icofont.woff2" />
@@ -2110,6 +2117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903280519022_AdminTable.resx">
       <DependentUpon>201903280519022_AdminTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903281454593_SettingLogoName.resx">
+      <DependentUpon>201903281454593_SettingLogoName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

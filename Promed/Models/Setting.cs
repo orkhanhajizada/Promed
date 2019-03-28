@@ -12,7 +12,7 @@ namespace Promed.Models
 
         [Required]
         [StringLength(250)]
-        public string Logo { get; set; }
+        public string Photo { get; set; }
 
         [Required]
         [StringLength(50)]
@@ -63,5 +63,10 @@ namespace Promed.Models
         [Required]
         [StringLength(50)]
         public string Lng { get; set; }
+
+        internal string FileManager(HttpPostedFileBase photo)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

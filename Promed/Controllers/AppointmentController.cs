@@ -58,11 +58,11 @@ namespace Promed.Controllers
         }
 
 
-        public JsonResult Message(string name, string email, string tel, int DepartmenId, int DoctorId, DateTime date, string message)
+        public JsonResult Message(string name, string email, string tel, int DepartmentId, int DoctoId, DateTime date, string message)
         {
 
-            Department department = _context.Departments.Find(DepartmenId);
-            Doctor doctor = _context.Doctors.Find(DoctorId);
+            Department department = _context.Departments.Find(DepartmentId);
+            Doctor doctor = _context.Doctors.Find(DoctoId);
             
 
             if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(message) || string.IsNullOrEmpty(tel))
@@ -76,7 +76,7 @@ namespace Promed.Controllers
             MailMessage.To.Add(new MailAddress("h.orkhan1907@gmail.com"));  // replace with valid value 
             MailMessage.From = new MailAddress(email);  // replace with valid value
             MailMessage.Subject = "Your email subject";
-            MailMessage.Body = string.Format(body, name, email, tel, department.Name, doctor.Name, date.ToString("dd.mm.yyyy"), message);
+            MailMessage.Body = string.Format(body, name, email, tel, department.Name, doctor.Name, date.ToString("dd.MM.yyyy"), message);
             MailMessage.IsBodyHtml = true;
 
             SmtpClient client = new SmtpClient
