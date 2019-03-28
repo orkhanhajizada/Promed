@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity;
 using Promed.Models;
-
+using Promed.Areas.Manage.Models;
 
 namespace Promed.DAL
 {
@@ -14,6 +14,9 @@ namespace Promed.DAL
         {
              
         }
+
+
+        #region Front
 
         public DbSet<Setting> Settings { get; set; }
         public DbSet<About> Abouts { get; set; }
@@ -31,5 +34,12 @@ namespace Promed.DAL
         public DbSet<Department> Departments { get; set; }
         public DbSet<Blog> Blogs { get; set; }
 
+        #endregion
+
+        #region AdminPanel
+
+        public DbSet<Admin> Admins { get; set; }
+
+        #endregion
     }
 }

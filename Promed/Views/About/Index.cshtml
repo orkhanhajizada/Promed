@@ -62,7 +62,7 @@
                 <div class="col-lg-6">
                     <span>About our medical</span>
                     <h3>@Model.About.Title</h3>
-                    <p>@Model.About.Text</p>
+                    <p>@Html.Raw(Model.About.Text)</p>
                     <ul>
                         @foreach (var item in Model.AboutElements)
                         {

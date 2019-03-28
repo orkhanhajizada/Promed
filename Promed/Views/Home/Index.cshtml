@@ -58,7 +58,7 @@
             <div class="col-md-12 col-lg-6">
                 <div class="about-us-text">
                     <h2>@Model.About.Title</h2>
-                    <p>@Model.About.Text</p>
+                    <p>@Html.Raw(Model.About.Text)</p>
                     <a href="@Url.Action("index","about")" class="default-btn">About Us</a>
                 </div>
             </div>
