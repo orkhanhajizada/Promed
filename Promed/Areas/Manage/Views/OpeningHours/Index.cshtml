@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Promed.Models.OpeningHour>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Day)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OpenHour)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderBy)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Day)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OpenHour)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderBy)
+        </td>
+        <td>
+            <a class="mr-2" href="@Url.Action("details", new { id=item.Id })">
+                <i class="fas fa-info-circle"></i>
+            </a>
+            <a class="mr-2" href="@Url.Action("edit", new { id=item.Id })">
+                <i class="fas fa-edit"></i>
+            </a>
+            <a class="text-danger" href="@Url.Action("delete", new { id=item.Id })">
+                <i class="fas fa-trash"></i>
+            </a>
+        </td>
+    </tr>
+}
+
+</table>
