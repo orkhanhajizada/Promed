@@ -22,7 +22,6 @@ namespace Promed.DAL
         public DbSet<About> Abouts { get; set; }
         public DbSet<OpeningHour> OpeningHours { get; set; }
         public DbSet<Slider> Sliders { get; set; }
-        public DbSet<Subscribe> Subscribes { get; set; }
         public DbSet<Subslider> Subsliders { get; set; }
         public DbSet<Feedback> Feedbacks { get; set; }
         public DbSet<Fact> Facts { get; set; }

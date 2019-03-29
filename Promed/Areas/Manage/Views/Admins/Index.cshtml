@@ -1,8 +1,10 @@
-﻿@model IEnumerable<Promed.Models.Blog>
+﻿@model IEnumerable<Promed.Areas.Manage.Models.Admin>
 
 @{
-    ViewBag.Title = "Blogs";
+    ViewBag.Title = "Index";
 }
+
+
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -10,13 +12,10 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Title)
+            @Html.DisplayNameFor(model => model.Fullname)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TitlePhoto)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Date)
+            @Html.DisplayNameFor(model => model.Email)
         </th>
         <th></th>
     </tr>
@@ -24,13 +23,10 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Title)
+            @Html.DisplayFor(modelItem => item.Fullname)
         </td>
         <td>
-            <img src="~/Uploads/@item.TitlePhoto" width="100" />
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Date)
+            @Html.DisplayFor(modelItem => item.Email)
         </td>
         <td>
             <a class="mr-2" href="@Url.Action("details", new { id=item.Id })">

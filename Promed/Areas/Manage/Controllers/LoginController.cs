@@ -17,7 +17,7 @@ namespace Promed.Areas.Manage.Controllers
         public ActionResult Index()
         {
 
-            //return Content(Crypto.HashPassword("123"));
+            //return Content(Crypto.HashPassword("1234"));
 
             if (Session["AdminLogin"] != null)
             {
@@ -27,7 +27,7 @@ namespace Promed.Areas.Manage.Controllers
 
         }
 
-
+       
         public ActionResult Login(Admin admin)
         {
             if (string.IsNullOrEmpty(admin.Email) || string.IsNullOrEmpty(admin.Password))
@@ -38,7 +38,8 @@ namespace Promed.Areas.Manage.Controllers
 
             Admin adm = _context.Admins.FirstOrDefault(a => a.Email == admin.Email);
 
-             
+            
+
             if (adm != null)
             {
                 if (Crypto.VerifyHashedPassword(adm.Password, admin.Password))
