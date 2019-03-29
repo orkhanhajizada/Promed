@@ -192,7 +192,7 @@
                     <div class="caption-text text-center">
                             <h3><a href="@Url.Action("details","doctors", new {Slug= item.Slug})">@item.Name</a></h3>
                         <span class="designation mb-10">@item.Speciality.Name</span>
-                        <p>@item.MinAbout</p>
+                        <p>@Html.Raw(item.MinAbout)</p>
                     </div>
                 </div>
             }

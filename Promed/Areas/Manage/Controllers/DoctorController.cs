@@ -6,23 +6,24 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Promed.Areas.Manage.Helpers;
 using Promed.DAL;
 using Promed.Models;
 
 namespace Promed.Areas.Manage.Controllers
 {
-    public class DoctorsController : Controller
+    public class DoctorController : Controller
     {
         private PromedContext db = new PromedContext();
 
-        // GET: Manage/Doctors
+        // GET: Manage/Doctor
         public ActionResult Index()
         {
             var doctors = db.Doctors.Include(d => d.Department).Include(d => d.Speciality);
             return View(doctors.ToList());
         }
 
-        // GET: Manage/Doctors/Details/5
+        // GET: Manage/Doctor/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,21 +38,32 @@ namespace Promed.Areas.Manage.Controllers
             return View(doctor);
         }
 
-        // GET: Manage/Doctors/Create
+        // GET: Manage/Doctor/Create
         public ActionResult Create()
         {
-            ViewBag.DepartmentId = new SelectList(db.Departments, "Id", "Slug");
+            ViewBag.DepartmentId = new SelectList(db.Departments, "Id", "Name");
             ViewBag.SpecialityId = new SelectList(db.Specialities, "Id", "Name");
             return View();
         }
 
-        // POST: Manage/Doctors/Create
+        // POST: Manage/Doctor/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Slug,Name,Photo,MinAbout,About,Phone,Email,Adress,Facebook,Twitter,Google,Linkedin,IsHead,DepartmentId,SpecialityId")] Doctor doctor)
+        [ValidateInput(false)]
+        public ActionResult Create([Bind(Include = "Id,Slug,Name,Photo,MinAbout,About,Phone,Email,Adress,Facebook,Twitter,Google,Linkedin,IsHead,DepartmentId,SpecialityId")] Doctor doctor, HttpPostedFileBase Photo)
         {
+            if (Photo == null)
+            {
+                ModelState.AddModelError("Photo", "Please Select file");
+            }
+            else
+            {
+                doctor.Photo = FileManager.Upload(Photo);
+            }
+
+
             if (ModelState.IsValid)
             {
                 db.Doctors.Add(doctor);
@@ -59,12 +71,12 @@ namespace Promed.Areas.Manage.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.DepartmentId = new SelectList(db.Departments, "Id", "Slug", doctor.DepartmentId);
+            ViewBag.DepartmentId = new SelectList(db.Departments, "Id", "Name", doctor.DepartmentId);
             ViewBag.SpecialityId = new SelectList(db.Specialities, "Id", "Name", doctor.SpecialityId);
             return View(doctor);
         }
 
-        // GET: Manage/Doctors/Edit/5
+        // GET: Manage/Doctor/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -76,30 +88,45 @@ namespace Promed.Areas.Manage.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.DepartmentId = new SelectList(db.Departments, "Id", "Slug", doctor.DepartmentId);
+            ViewBag.DepartmentId = new SelectList(db.Departments, "Id", "Name", doctor.DepartmentId);
             ViewBag.SpecialityId = new SelectList(db.Specialities, "Id", "Name", doctor.SpecialityId);
             return View(doctor);
         }
 
-        // POST: Manage/Doctors/Edit/5
+        // POST: Manage/Doctor/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Slug,Name,Photo,MinAbout,About,Phone,Email,Adress,Facebook,Twitter,Google,Linkedin,IsHead,DepartmentId,SpecialityId")] Doctor doctor)
+        [ValidateInput(false)]
+        public ActionResult Edit([Bind(Include = "Id,Slug,Name,Photo,MinAbout,About,Phone,Email,Adress,Facebook,Twitter,Google,Linkedin,IsHead,DepartmentId,SpecialityId")] Doctor doctor, HttpPostedFileBase Photo)
         {
+
+            db.Entry(doctor).State = EntityState.Modified;
+
+            if (Photo == null)
+            {
+                db.Entry(doctor).Property(a => a.Photo).IsModified = false;
+            }
+            else
+            {
+                FileManager.Delete(doctor.Photo);
+
+                doctor.Photo = FileManager.Upload(Photo);
+            }
+
             if (ModelState.IsValid)
             {
                 db.Entry(doctor).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.DepartmentId = new SelectList(db.Departments, "Id", "Slug", doctor.DepartmentId);
+            ViewBag.DepartmentId = new SelectList(db.Departments, "Id", "Name", doctor.DepartmentId);
             ViewBag.SpecialityId = new SelectList(db.Specialities, "Id", "Name", doctor.SpecialityId);
             return View(doctor);
         }
 
-        // GET: Manage/Doctors/Delete/5
+        // GET: Manage/Doctor/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -114,7 +141,7 @@ namespace Promed.Areas.Manage.Controllers
             return View(doctor);
         }
 
-        // POST: Manage/Doctors/Delete/5
+        // POST: Manage/Doctor/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

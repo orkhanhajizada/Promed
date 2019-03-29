@@ -35,7 +35,7 @@
 
                     <div class="doctors-desc">
                         <h3>@Model.Name</h3>
-                        <p>@Model.About</p>
+                        <p>@Html.Raw(Model.About)</p>
                     </div>
                 </div>
             </div>
@@ -49,7 +49,7 @@
                             <li>Phone: <span>@Model.Phone</span></li>
                             <li>Email: <span>@Model.Email</span></li>
                             <li>Speciality: <span>@Model.Speciality.Name</span></li>
-                            <li>Department: <span><a href="@Url.Action("index","departments")">@Model.Department.Name</a></span></li>
+                            <li>Department: <span><a href="@Url.Action("details","department",new {Slug= Model.Department.Slug})">@Model.Department.Name</a></span></li>
                         </ul>
                     </div>
 
