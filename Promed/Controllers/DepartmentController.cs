@@ -23,7 +23,8 @@ namespace Promed.Controllers
                 return HttpNotFound();
             }
 
-            ViewBag.Doctor = _context.Doctors.Include("Department").FirstOrDefault(h=>h.DepartmentId == departments.Id);
+            ViewBag.Doctor = _context.Doctors.Include("Department").FirstOrDefault(h=>h.DepartmentId == departments.Id && h.IsHead==true);
+
 
             ViewBag.Depatment = _context.Departments.FirstOrDefault();
 

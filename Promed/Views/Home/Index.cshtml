@@ -99,7 +99,7 @@
                     <div class="single-department">
                         <i class="@dep.Icon"></i>
                         <h3><a href="@Url.Action("details","department",new {Slug= dep.Slug})">@dep.Name</a></h3>
-                        <p>@dep.MinAbout</p>
+                        <p>@Html.Raw(dep.MinAbout)</p>
                     </div>
                 </div>
             }

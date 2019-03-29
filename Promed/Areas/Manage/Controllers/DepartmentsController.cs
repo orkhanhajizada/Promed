@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Promed.Areas.Manage.Helpers;
 using Promed.DAL;
 using Promed.Models;
 
@@ -47,8 +48,19 @@ namespace Promed.Areas.Manage.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Slug,Name,Phone,Adress,Email,Photo,Icon,Title,Text,MinAbout")] Department department)
+        [ValidateInput(false)]
+        public ActionResult Create([Bind(Include = "Id,Slug,Name,Phone,Adress,Email,Photo,Icon,Title,Text,MinAbout")] Department department, HttpPostedFileBase Photo)
         {
+            if (Photo == null)
+            {
+                ModelState.AddModelError("Photo", "Please Select file");
+            }
+            else
+            {
+                department.Photo = FileManager.Upload(Photo);
+            }
+
+
             if (ModelState.IsValid)
             {
                 db.Departments.Add(department);
@@ -79,8 +91,23 @@ namespace Promed.Areas.Manage.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Slug,Name,Phone,Adress,Email,Photo,Icon,Title,Text,MinAbout")] Department department)
+        [ValidateInput(false)]
+        public ActionResult Edit([Bind(Include = "Id,Slug,Name,Phone,Adress,Email,Photo,Icon,Title,Text,MinAbout")] Department department, HttpPostedFileBase Photo)
         {
+            db.Entry(department).State = EntityState.Modified;
+
+            if (Photo == null)
+            {
+                db.Entry(department).Property(a => a.Photo).IsModified = false;
+            }
+            else
+            {
+                FileManager.Delete(department.Photo);
+
+                department.Photo = FileManager.Upload(Photo);
+            }
+
+
             if (ModelState.IsValid)
             {
                 db.Entry(department).State = EntityState.Modified;
