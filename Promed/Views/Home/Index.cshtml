@@ -277,7 +277,7 @@
                         <li>@blog.Date.ToString("dd MMM,yyy")</li>
                     </ul>
 
-                    <p>@blog.MinAbout</p>
+                    <p>@Html.Raw(blog.MinAbout)</p>
 
                     <a href="@Url.Action("read","blog", new {Slug= blog.Slug})" class="read-more">Read More <i class="icofont-swoosh-right"></i></a>
                 </div>

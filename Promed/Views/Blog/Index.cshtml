@@ -33,7 +33,7 @@
                             <div class="single-card actical-card">
                                 <div class="thumb-img">
                                     <a href="@Url.Action("read","blog", new {Slug= blog.Slug})">
-                                        <img src="~/Uploads/@blog.TitlePhoto" alt="~/Uploads/~/Uploads/@blog.TitlePhoto" />
+                                        <img src="~/Uploads/@blog.TitlePhoto" alt="~/Uploads/@blog.TitlePhoto" />
                                     </a>
                                 </div>
 
@@ -48,7 +48,7 @@
                                         <li>@blog.Date.ToString("dd MMM yyy")</li>
                                     </ul>
 
-                                    <p>@blog.MinAbout</p>
+                                    <p>@Html.Raw(blog.MinAbout)</p> 
 
                                     <a href="@Url.Action("read","blog", new {Slug= blog.Slug})" class="read-more">Read More <i class="icofont-swoosh-right"></i></a>
                                 </div>

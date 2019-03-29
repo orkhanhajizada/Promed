@@ -127,7 +127,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Manage\Controllers\AboutsController.cs" />
+    <Compile Include="Areas\Manage\Controllers\BlogsController.cs" />
     <Compile Include="Areas\Manage\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Manage\Controllers\DoctorsController.cs" />
     <Compile Include="Areas\Manage\Controllers\LoginController.cs" />
     <Compile Include="Areas\Manage\Controllers\SettingsController.cs" />
     <Compile Include="Areas\Manage\Filters\Auth.cs" />
@@ -201,6 +203,18 @@
     <Compile Include="Migrations\201903281454593_SettingLogoName.cs" />
     <Compile Include="Migrations\201903281454593_SettingLogoName.Designer.cs">
       <DependentUpon>201903281454593_SettingLogoName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903290949534_BlogTextRequired.cs" />
+    <Compile Include="Migrations\201903290949534_BlogTextRequired.Designer.cs">
+      <DependentUpon>201903290949534_BlogTextRequired.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903291009357_BlogTextRequired1.cs" />
+    <Compile Include="Migrations\201903291009357_BlogTextRequired1.Designer.cs">
+      <DependentUpon>201903291009357_BlogTextRequired1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903291102565_BlogAllowHTML.cs" />
+    <Compile Include="Migrations\201903291102565_BlogAllowHTML.Designer.cs">
+      <DependentUpon>201903291102565_BlogAllowHTML.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\About.cs" />
@@ -2063,6 +2077,16 @@
     <Content Include="Areas\Manage\Views\Abouts\Index.cshtml" />
     <Content Include="Areas\Manage\Views\Settings\Edit.cshtml" />
     <Content Include="Areas\Manage\Views\Settings\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Blogs\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\Blogs\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\Blogs\Details.cshtml" />
+    <Content Include="Areas\Manage\Views\Blogs\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\Blogs\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Doctors\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\Doctors\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\Doctors\Details.cshtml" />
+    <Content Include="Areas\Manage\Views\Doctors\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\Doctors\Index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Public\assets\fonts\icofont.woff" />
     <Content Include="Public\assets\fonts\icofont.woff2" />
@@ -2120,6 +2144,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903281454593_SettingLogoName.resx">
       <DependentUpon>201903281454593_SettingLogoName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903290949534_BlogTextRequired.resx">
+      <DependentUpon>201903290949534_BlogTextRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903291009357_BlogTextRequired1.resx">
+      <DependentUpon>201903291009357_BlogTextRequired1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903291102565_BlogAllowHTML.resx">
+      <DependentUpon>201903291102565_BlogAllowHTML.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

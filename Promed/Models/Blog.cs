@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Web.Mvc;
 
 namespace Promed.Models
 {
@@ -18,11 +19,11 @@ namespace Promed.Models
         [StringLength(500)]
         public string Title { get; set; }
 
-        [Required, MinLength(250)]
+        [AllowHtml,Required,MinLength(250)]
         [Column(TypeName = "ntext")]
         public string Text { get; set; }
 
-        [Required, MaxLength(250)]
+        [AllowHtml,Required, MaxLength(250)]
         [Column(TypeName = "ntext")]
         public string MinAbout { get; set; }
 
