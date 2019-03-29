@@ -29,7 +29,6 @@ namespace Promed.DAL
         public DbSet<AboutElement> AboutElements { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Speciality> Specialities { get; set; }
-        public DbSet<Appointment> Appointments { get; set; }
         public DbSet<Doctor> Doctors { get; set; }
         public DbSet<Department> Departments { get; set; }
         public DbSet<Blog> Blogs { get; set; }

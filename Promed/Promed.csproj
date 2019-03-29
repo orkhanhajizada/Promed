@@ -138,6 +138,9 @@
     <Compile Include="Areas\Manage\Controllers\LoginController.cs" />
     <Compile Include="Areas\Manage\Controllers\OpeningHoursController.cs" />
     <Compile Include="Areas\Manage\Controllers\SettingsController.cs" />
+    <Compile Include="Areas\Manage\Controllers\SlidersController.cs" />
+    <Compile Include="Areas\Manage\Controllers\SpecialitiesController.cs" />
+    <Compile Include="Areas\Manage\Controllers\SubslidersController.cs" />
     <Compile Include="Areas\Manage\Filters\Auth.cs" />
     <Compile Include="Areas\Manage\Helpers\FileManager.cs" />
     <Compile Include="Areas\Manage\ManageAreaRegistration.cs" />
@@ -222,10 +225,13 @@
     <Compile Include="Migrations\201903291102565_BlogAllowHTML.Designer.cs">
       <DependentUpon>201903291102565_BlogAllowHTML.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903291836242_AppointmentDelete.cs" />
+    <Compile Include="Migrations\201903291836242_AppointmentDelete.Designer.cs">
+      <DependentUpon>201903291836242_AppointmentDelete.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\About.cs" />
     <Compile Include="Models\AboutElement.cs" />
-    <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\Blog.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Department.cs" />
@@ -2122,6 +2128,20 @@
     <Content Include="Areas\Manage\Views\OpeningHours\Details.cshtml" />
     <Content Include="Areas\Manage\Views\OpeningHours\Edit.cshtml" />
     <Content Include="Areas\Manage\Views\OpeningHours\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Sliders\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\Sliders\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\Sliders\Details.cshtml" />
+    <Content Include="Areas\Manage\Views\Sliders\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\Sliders\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Specialities\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\Specialities\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\Specialities\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\Specialities\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Subsliders\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\Subsliders\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\Subsliders\Details.cshtml" />
+    <Content Include="Areas\Manage\Views\Subsliders\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\Subsliders\Index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Public\assets\fonts\icofont.woff" />
     <Content Include="Public\assets\fonts\icofont.woff2" />
@@ -2188,6 +2208,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903291102565_BlogAllowHTML.resx">
       <DependentUpon>201903291102565_BlogAllowHTML.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903291836242_AppointmentDelete.resx">
+      <DependentUpon>201903291836242_AppointmentDelete.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Promed.Models.Subslider>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Photo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Text)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <img src="~/Uploads/@item.Photo" width="200" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Text)
+        </td>
+        <td>
+            <a class="mr-2" href="@Url.Action("details", new { id=item.Id })">
+                <i class="fas fa-info-circle"></i>
+            </a>
+            <a class="mr-2" href="@Url.Action("edit", new { id=item.Id })">
+                <i class="fas fa-edit"></i>
+            </a>
+            <a class="text-danger" href="@Url.Action("delete", new { id=item.Id })">
+                <i class="fas fa-trash"></i>
+            </a>
+        </td>
+    </tr>
+}
+
+</table>

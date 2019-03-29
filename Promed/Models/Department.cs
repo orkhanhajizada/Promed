@@ -50,7 +50,6 @@ namespace Promed.Models
         public string MinAbout { get; set; }
 
         public List<Doctor> Doctors { get; set; }
-        public List<Appointment> Appointments { get; set; }
 
     }
 }
