@@ -42,7 +42,7 @@ namespace Promed.Areas.Manage.Controllers
                 ModelState.AddModelError("Email", "This Email already use!");
             }
 
-            admin.Password = Crypto.HashPassword("Password");
+            admin.Password = Crypto.HashPassword(admin.Password);
 
 
             if (ModelState.IsValid)

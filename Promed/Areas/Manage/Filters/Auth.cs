@@ -16,8 +16,8 @@ namespace Promed.Areas.Manage.Filters
                 filterContext.Result = new RedirectResult("~/manage");
                 return;
             }
-
             base.OnActionExecuting(filterContext);
+
         }
 
     }

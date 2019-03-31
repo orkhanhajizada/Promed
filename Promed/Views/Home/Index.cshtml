@@ -397,7 +397,7 @@
         </div>
 
         <div class="subscribe-from">
-            <form class="newsletter-form" data-toggle="validator">
+            <form class="newsletter-form" data-toggle="validator" method="post" action="@Url.Action("subscribe","home")">
                 <input type="email" class="form-control" placeholder="Enter email" name="EMAIL" required autocomplete="off">
                 <button type="submit" class="btn submit-btn"><i class="icofont-location-arrow"></i></button>
                 <div id="validator-newsletter" class="form-result"></div>

@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
+using System.Net.Mail; 
 using Promed.ViewModels;
+using Promed.Models;
 
 namespace Promed.Controllers
 {
@@ -32,5 +35,19 @@ namespace Promed.Controllers
 
             return View(model);
         }
+
+        public ActionResult Subscribe(string Email)
+        {
+            if (Email != null)
+            {
+                Models.Subscribe sub = new Models.Subscribe();
+                sub.Email = Email;
+                _context.Subscribes.Add(sub);
+                _context.SaveChanges();
+                
+            }
+            return View();
+        }
+
     }
 }

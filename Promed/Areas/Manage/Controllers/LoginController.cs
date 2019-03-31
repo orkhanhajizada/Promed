@@ -52,6 +52,19 @@ namespace Promed.Areas.Manage.Controllers
 
             Session["LoginError"] = "Email or password incorrect";
             return RedirectToAction("index");
+
+
+        }
+
+        public ActionResult Logout()
+        {
+            Session["AdminLogin"] = null;
+
+            Session["Admin"] = null;
+
+            Session.Clear();
+
+            return RedirectToAction("index");
         }
     }
 }

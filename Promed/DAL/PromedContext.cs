@@ -31,6 +31,7 @@ namespace Promed.DAL
         public DbSet<Doctor> Doctors { get; set; }
         public DbSet<Department> Departments { get; set; }
         public DbSet<Blog> Blogs { get; set; }
+        public DbSet<Subscribe> Subscribes { get; set; }
 
         #endregion
 

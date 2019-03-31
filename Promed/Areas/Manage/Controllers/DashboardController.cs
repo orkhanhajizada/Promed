@@ -14,6 +14,12 @@ namespace Promed.Areas.Manage.Controllers
         
         public ActionResult Index()
         {
+          if(  Session["AdminLogin"] == null)
+            {
+              return  RedirectToAction("index", "login");
+                
+            }
+
             return View();
         }
     }
