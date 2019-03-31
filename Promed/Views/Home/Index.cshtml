@@ -283,107 +283,6 @@
                 </div>
             </div>
             }
-            
-
-            <div class="single-card actical-card">
-                <div class="thumb-img">
-                    <a href="#">
-                        <img src="~/Public/assets/img/news/2.jpg" alt="News Image" />
-                    </a>
-                </div>
-
-                <div class="caption-text">
-                    <h3><a href="#">4 Simple Tips To Dental Patient Marketing</a></h3>
-
-                    <ul class="meta-tag">
-                        <li class="author">
-                            <img src="~/Public/assets/img/patient/1.jpg" alt="">
-                            <a href="#">Dr. Jack</a>
-                        </li>
-                        <li>7 Jan, 2019</li>
-                        <li><i class="icofont-speech-comments"></i> 30</li>
-                    </ul>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
-
-                    <a href="#" class="read-more">Read More <i class="icofont-swoosh-right"></i></a>
-                </div>
-            </div>
-
-            <div class="single-card actical-card">
-                <div class="thumb-img">
-                    <a href="#">
-                        <img src="~/Public/assets/img/news/3.jpg" alt="News Image" />
-                    </a>
-                </div>
-
-                <div class="caption-text">
-                    <h3><a href="#">How to Donate Medical Supplies</a></h3>
-
-                    <ul class="meta-tag">
-                        <li class="author">
-                            <img src="~/Public/assets/img/patient/1.jpg" alt="">
-                            <a href="#">Dr. Tom</a>
-                        </li>
-                        <li>8 Jan, 2019</li>
-                        <li><i class="icofont-speech-comments"></i> 30</li>
-                    </ul>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
-
-                    <a href="#" class="read-more">Read More <i class="icofont-swoosh-right"></i></a>
-                </div>
-            </div>
-
-            <div class="single-card actical-card">
-                <div class="thumb-img">
-                    <a href="#">
-                        <img src="~/Public/assets/img/news/4.jpg" alt="News Image" />
-                    </a>
-                </div>
-
-                <div class="caption-text">
-                    <h3><a href="#">Simple First Aid Tips For An Injured Ankle</a></h3>
-
-                    <ul class="meta-tag">
-                        <li class="author">
-                            <img src="~/Public/assets/img/patient/1.jpg" alt="">
-                            <a href="#">Dr. Jaci</a>
-                        </li>
-                        <li>15 Jan, 2019</li>
-                        <li><i class="icofont-speech-comments"></i> 30</li>
-                    </ul>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
-
-                    <a href="#" class="read-more">Read More <i class="icofont-swoosh-right"></i></a>
-                </div>
-            </div>
-
-            <div class="single-card actical-card">
-                <div class="thumb-img">
-                    <a href="#">
-                        <img src="~/Public/assets/img/news/5.jpg" alt="News Image" />
-                    </a>
-                </div>
-
-                <div class="caption-text">
-                    <h3><a href="#">Tips for Moms to Detect Medicare Scams</a></h3>
-
-                    <ul class="meta-tag">
-                        <li class="author">
-                            <img src="~/Public/assets/img/patient/1.jpg" alt="">
-                            <a href="#">Dr. Alert</a>
-                        </li>
-                        <li>25 Jan, 2019</li>
-                        <li><i class="icofont-speech-comments"></i> 30</li>
-                    </ul>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
-
-                    <a href="#" class="read-more">Read More <i class="icofont-swoosh-right"></i></a>
-                </div>
-            </div>
         </div>
     </div>
 </section>
@@ -397,8 +296,8 @@
         </div>
 
         <div class="subscribe-from">
-            <form class="newsletter-form" data-toggle="validator" method="post" action="@Url.Action("subscribe","home")">
-                <input type="email" class="form-control" placeholder="Enter email" name="EMAIL" required autocomplete="off">
+            <form class="newsletter-form" data-toggle="validator" method="POST" action="@Url.Action("subscribe","home")">
+                <input type="email" class="form-control" placeholder="Enter email" name="Email" required autocomplete="off">
                 <button type="submit" class="btn submit-btn"><i class="icofont-location-arrow"></i></button>
                 <div id="validator-newsletter" class="form-result"></div>
             </form>

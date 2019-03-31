@@ -36,18 +36,6 @@ namespace Promed.Controllers
             return View(model);
         }
 
-        public ActionResult Subscribe(string Email)
-        {
-            if (Email != null)
-            {
-                Models.Subscribe sub = new Models.Subscribe();
-                sub.Email = Email;
-                _context.Subscribes.Add(sub);
-                _context.SaveChanges();
-                
-            }
-            return View();
-        }
 
     }
 }
